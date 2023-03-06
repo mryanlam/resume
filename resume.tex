@@ -11,82 +11,81 @@
 \setlist[itemize]{leftmargin=*}
 \renewcommand{\familydefault}{\sfdefault}
 \name{\begin{minipage}[t]{\textwidth}
-\includegraphics[height=0.5cm]{dllu.pdf}
-\hspace{0.5cm}
+%\includegraphics[height=0.5cm]{dllu.pdf}
+% \hspace{0.5cm}
 \Large
-Daniel Lawrence Lu
+Matthew Lam
 \vspace{6mm}
 \end{minipage}}
 \address{\begin{minipage}[t]{\textwidth}
 \sc
 \lsstyle
-\href{https://daniel.lawrence.lu}{https://daniel.lawrence.lu}
+\href{https://mryanlam.com}{https://mryanlam.com}
 \hfill
-daniel@lawrence.lu
+matt@mryanlam.com
 \hfill
-1-206-604-0014
+253-237-4129
 \hfill
-san jose
+New York, NY
 \\
-\href{https://github.com/dllu}{https://github.com/dllu}
+% \href{https://github.com/dllu}{https://github.com/dllu}
 \end{minipage}}
 \begin{document}
 \begin{resume}
 \section{\sc \lsstyle work}
-    \href{https://tesla.com/ai}{\textbf{Tesla}}, Palo Alto, CA\hfill \textsc{\bfseries\lsstyle 2021-10 -- present}\\
-    \textit{Senior Software Engineer --- Autopilot}\hfill C++, Python
-    \vspace{0.5em}
+    \href{https://www.google.com/}{\textbf{Google}} \hfill \textsc{\bfseries\lsstyle 2022-02 -- present}\\
+    \textit{Software Engineer, Site Reliability Engineering --- Corp Containers SRE}\hfill New York, NY\\
+    Python, Golang, Kubernetes, Puppet
+    % \vspace{0.5em}
     \begin{itemize}
-        \item Multi-trip surface reconstruction; simultaneous localization and mapping (\textsc{slam});
-        \item Automatic alignment of clips to map data for autolabelling.
+        \item Development of Virtual Machine lifecycle management workflows.
     \end{itemize}
 
-    \href{https://tempus-ex.com}{\textbf{Tempus Ex Machina}}, San Francisco, CA\hfill \textsc{\bfseries\lsstyle 2020-09 -- 2021-10}\\
-    \textit{Staff Software Engineer --- Computer Vision}\hfill Python, Rust, TypeScript
-    \vspace{0.5em}
+    \href{https://www.oracle.com/cloud/}{\textbf{Oracle Cloud Infrastructure}} \hfill \textsc{\bfseries\lsstyle 2020-01 -- 2022-02}\\
+    \textit{Senior Member of Technical Staff --- Developer Services Analytics}\hfill Seattle, WA\\
+    Java, Python, Kubernetes, Terraform
+    % \vspace{0.5em}
     \begin{itemize}
-        \item Automatic single-shot monocular camera to sports field calibration;
-        \item Real time deep learning multi-object tracking and human pose estimation;
-        \item Full data lifecycle including: data extraction; administrating labelling platform and annotators; training (Tensorflow/Keras); experiment tracking (MLflow/WandB); deployment (\textsc{onnx}).
+        \item Developed an internal metrics service to track API usage of Oracle Cloud Infrastructure in Python and Java.
+        \item Improved scalability and reduced operational risk by replacing cron based scheduler with work queue using competing
+        consumer pattern.
+        \item Integrated service with OCI monitoring, alarming, and logging to monitor application health.
+        \item Wrote Helm Chart to deploy service to Kubernetes (OKE) via Terraform.
     \end{itemize}
 
-    \href{https://ouster.com}{\textbf{Ouster}}, San Francisco, CA\hfill \textsc{\bfseries\lsstyle 2016-09 -- 2020-09}\\
-    \textit{Lead Software Engineer --- 3D Mapping}\hfill C++, Python, OpenGL
-    \vspace{0.5em}
+    \href{https://www.f5.com/}{\textbf{F5 Networks}} \hfill \textsc{\bfseries\lsstyle 2016-03 -- 2020-01}\\
+    \textit{Software Engineer III --- Rapid Development Team}\hfill Seattle, WA\\
+    C, Python, Flask, Ansible
+    % \vspace{0.5em}
     \begin{itemize}
-        \item Architected and implemented core algorithms as the first software engineer;
-        \item Real time multi-lidar 6DoF \textsc{slam} with: < 1\% drift, loop closure, robust GPS georeferencing;
-        \item Deep learning lidar feature extraction; spline-based continuous-time SE(3) trajectory optimizer;
-        \item Extrinsic calibration; ground segmentation; OpenGL and WebGL visualisers.
+        \item Debugged and fixed customer facing issues in the BIG-IP's LTM and DNS modules.
+        \item Designed and Implemented BIG-IP feature to better manage core files and prevent loss of information necessary to
+        diagnose why the core occurred.
+        \item Performed threat model assessments on new F5 features to ensure secure design of new features.
+        \item Developed Continuous Integration Pipeline in Python to perform Build, Test, and Integration for maintenance releases.
+        \item Implemented F5 Bug Tracker backend for customers to self service check status of bugs instead of creating a support
+        request.
+        \item Wrote Python script to generate F5 Log Messages Reference for customers to better understand the conditions, impact
+        and recommended actions for various warnings and errors in their logs.
+        \item Maintained Perl script to interact with various apis and generate release notes for BIG-IP maintenance releases.
+        \item Contributed to F5 ansible's bigip\_device\_dns and bigip\_hostname modules.
+        \item Implemented scripts that utilize GDB's Python-API to automate running of necessary commands.
     \end{itemize}
-\section{\sc \lsstyle intern/ra}
-    \textbf{Facebook}, \textit{Save for later team}\hfill \textsc{\bfseries\lsstyle 2015-05 -- 2015-08}\\
-    Full stack development for Save For Later functionality.\hfill hack/\textsc{php}
+\section{\sc \lsstyle intern}
+    \textbf{F5 Networks}, \textit{Rapid Development Team Intern}\hfill \textsc{\bfseries\lsstyle 2015-06 -- 2016-03}\\
+    Researched security vulnerabilities and how they affect the BIG-IP platform.\hfill python, perl
 
-    \textbf{CMU}, \textit{Autonomous Yamaha Viking} \hfill \textsc{\bfseries\lsstyle 2014-08 -- 2016-08}\\
-    Real time visual-inertial-lidar \textsc{slam} for autonomous off-road vehicle.\hfill C++11
-
-    \textbf{Facebook}, \textit{People, places and things team}\hfill \textsc{\bfseries\lsstyle 2014-05 -- 2014-08}\\
-    Collaborative filtering and data pipelines to recommend Facebook pages.\hfill C++, HiveQL, Hack/\textsc{php}
-
-    \textbf{UBC}, \textit{Ultrasound volumetric image registration}\hfill \textsc{\bfseries\lsstyle 2011-05 -- 2011-12}\\
-    GPU-accelerated registration of ultrasound and \textsc{cat} scans for epidural administration.\hfill C++, \textsc{cuda}
-
-    \textbf{UBC}, \textit{Bat multilateration and classification}\hfill \textsc{\bfseries\lsstyle 2010-01 -- 2010-04}\\
-    Tracking and classifying bat species such as {\em Myotis lucifugus} with microphone array.\hfill \textsc{matlab}
+    \textbf{GoldSim Technology Group}, \textit{Intern} \hfill \textsc{\bfseries\lsstyle 2013-06 -- 2013-09}\\
+    Automated and Manual testing of GoldSim software
 
 \section{\sc \lsstyle school}
-    \textbf{Carnegie Mellon University}, Master of Science in Robotics \hfill \textsc{\bfseries\lsstyle 2014-08 -- 2016-08}\\
-    Robotics Institute, Advisor: George Kantor\hfill GPA: 3.76\\
-    Thesis: \textit{Vision-Enhanced Lidar Odometry and Mapping}\vspace{3pt}\\
-    \textbf{University of British Columbia}, Bachelor of Applied Science \hfill \textsc{\bfseries\lsstyle 2008-09 -- 2014-05}\\
-    Engineering Physics\hfill GPA: 82.1\% (A-)%\vspace{3pt}\\
-\section{\sc \lsstyle skills}
-    \textbf{Languages:}
-    C++20, JavaScript/TypeScript, \textsc{matlab}, Python, Rust \\
-    %\textbf{CAD:} Rhinoceros 3D, Solidworks \\
-    %\textbf{Operating system:} \textsc{gnu}/Linux\\
-    Canadian citizen, USA Green Card holder. Fluent in English and Mandarin.\\
+    \textbf{Western Washington University} \hfill \textsc{\bfseries\lsstyle 2011 -- 2015}\\
+    Computer Science, BS
+    
+% \section{\sc \lsstyle skills}
+%     \textbf{Languages:}
+%     Python, Java, Golang\\
+%     \textbf{Technologies:} Ansible, Docker, Flask, GDB, Helm, Kubernetes, Networking, REST API, Linux\\
 \end{resume}
 \begin{minipage}[t]{\textwidth}
     \flushright
