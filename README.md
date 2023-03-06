@@ -4,6 +4,6 @@ Hi this is my resume.
 
 `pdflatex resume.tex`
 
-![resume](https://daniel.lawrence.lu/resume.png)
+![resume](https://files.mryanlam.com/resume.png)
 
-[**download pdf**](https://daniel.lawrence.lu/resume.pdf)
+[**download pdf**](https://files.mryanlam.com/resume.pdf)
