@@ -24,4 +24,4 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
           source: "resume.pdf,resume.png"
-          target: "/www/misc"
+          target: "/var/www/mryanlam/html"
