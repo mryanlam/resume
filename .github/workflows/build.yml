@@ -30,12 +30,3 @@ jobs:
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
           command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.png --force
-      - name: SCP file
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          source: "resume.pdf,resume.png"
-          target: "/var/www/mryanlam/html"
