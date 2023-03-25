@@ -3,6 +3,12 @@ on: [push]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    env:
+      OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
+      OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
+      OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
+      OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
+      OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v1
@@ -16,6 +22,14 @@ jobs:
       - name: Generate thumbnail
         run: |
           pdftoppm -png -hide-annotations resume.pdf > resume.png
+      - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
+        uses: oracle-actions/run-oci-cli-command@v1.1.1
+        with:
+          command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.pdf
+      - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
+        uses: oracle-actions/run-oci-cli-command@v1.1.1
+        with:
+          command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.png
       - name: SCP file
         uses: appleboy/scp-action@master
         with:
