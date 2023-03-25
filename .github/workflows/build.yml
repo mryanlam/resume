@@ -1,5 +1,8 @@
 name: Build LaTeX document
-on: [push]
+on: 
+  push:
+    paths-ignore:
+      - '**/README.md'
 jobs:
   build_latex:
     runs-on: ubuntu-latest
