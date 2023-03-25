@@ -25,8 +25,8 @@ jobs:
       - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
-          command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.pdf --name MatthewLamResume.pdf --force
+          command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.pdf --name MatthewLamResume.pdf --content-type application/pdf --force
       - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
-          command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.png --force
+          command: os object put --bucket-name ${{ secrets.OCI_BUCKET }} --file resume.png --content-type image/png --force
