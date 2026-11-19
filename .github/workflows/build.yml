@@ -18,19 +18,22 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v6
-      - name: Install Source Sans 3 fonts
-        run: |
-          mkdir -p /tmp/fonts
-          curl -fsSL https://github.com/adobe-fonts/source-sans/releases/download/3.052R/OTF-source-sans-3.052R.zip -o /tmp/source-sans.zip
-          unzip -q /tmp/source-sans.zip -d /tmp/fonts
+      - name: Check out Source Sans 3 fonts
+        uses: actions/checkout@v6
+        with:
+          repository: adobe-fonts/source-sans
+          ref: 3.052R
+          path: .fonts
+          sparse-checkout: OTF
+          persist-credentials: false
       - name: Set up Typst
         uses: typst-community/setup-typst@v5
       - name: Compile Typst document
         run: |
-          typst compile --font-path /tmp/fonts resume.typ resume.pdf
+          typst compile --font-path .fonts/OTF resume.typ resume.pdf
       - name: Generate thumbnail
         run: |
-          typst compile --font-path /tmp/fonts --ppi 150 resume.typ resume.png
+          typst compile --font-path .fonts/OTF --ppi 150 resume.typ resume.png
       - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
         uses: oracle-actions/run-oci-cli-command@v1.3.2
         with:
