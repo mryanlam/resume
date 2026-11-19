@@ -12,7 +12,7 @@
 )
 
 #set text(
-  font: ("Source Sans 3", "Source Sans Pro"),
+  font: "Source Sans 3",
   size: 10pt,
   lang: "en",
 )

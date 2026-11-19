@@ -1,5 +1,5 @@
-name: Build LaTeX document
-on: 
+name: Build Typst document
+on:
   push:
     paths-ignore:
       - '**/README.md'
@@ -7,7 +7,7 @@ on:
       - main
       - master
 jobs:
-  build_latex:
+  build_typst:
     runs-on: ubuntu-latest
     env:
       OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
@@ -18,16 +18,19 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v6
-      - name: Install deps
+      - name: Install Source Sans 3 fonts
         run: |
-          sudo apt-get update && sudo apt-get -y install poppler-utils
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: resume.tex
+          mkdir -p /tmp/fonts
+          curl -fsSL https://github.com/adobe-fonts/source-sans/releases/download/3.052R/OTF-source-sans-3.052R.zip -o /tmp/source-sans.zip
+          unzip -q /tmp/source-sans.zip -d /tmp/fonts
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v5
+      - name: Compile Typst document
+        run: |
+          typst compile --font-path /tmp/fonts resume.typ resume.pdf
       - name: Generate thumbnail
         run: |
-          pdftoppm -png -hide-annotations resume.pdf > resume.png
+          typst compile --font-path /tmp/fonts --ppi 150 resume.typ resume.png
       - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
         uses: oracle-actions/run-oci-cli-command@v1.3.2
         with:

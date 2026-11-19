@@ -2,7 +2,9 @@
 
 Hi this is my resume.
 
-`pdflatex resume.tex`
+`typst compile resume.typ`
+
+(Requires the [Source Sans 3](https://github.com/adobe-fonts/source-sans/releases) font.)
 
 ![resume](https://objectstorage.us-phoenix-1.oraclecloud.com/p/RsXB7Rf_aXoXuZvHjIMX_72NPO6ftJjA4aZnfhm9A6V3pWMMwX-SBbCljYEfwdoV/n/axlhfpsumuyq/b/mbucket/o/resume.png?)
 
