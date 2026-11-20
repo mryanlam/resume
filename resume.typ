@@ -195,7 +195,7 @@
     location: "Seattle, WA",
   )[
     - Debugged customer-facing production issues and implemented C fixes in BIG-IP's Traffic Management Microkernel (TMM), improving data-plane stability and resolving critical defects.
-    // - Designed and implemented a core dump management feature for BIG-IP, retaining multiple crash dumps with storage caps to preserve critical diagnostic traces during crash loops while preventing disk saturation.
+    - Designed and implemented a core dump management feature for BIG-IP, retaining multiple crash dumps with storage caps to preserve critical diagnostic traces during crash loops while preventing disk saturation.
     - Built a Python data pipeline to ingest, synchronize, and write bug data to a database for the customer-facing F5 Bug Tracker, enabling self-service status checks and deflecting support tickets.
     - Built automated Python tooling to generate the public F5 Log Messages Reference, publishing conditions, operational impacts, and remediation guidance for system log events.
     - Contributed to the official F5 Ansible collection by developing the bigip\_device\_dns and bigip\_hostname modules to automate network device configuration management.
