@@ -72,27 +72,31 @@
     // Header lines inside a non-breakable block so titles aren't orphaned from bullets
     block(
       breakable: false,
-      below: if has-subroles { 0.35em } else if body.pos().len() > 0 { 0.55em } else { 0pt },
+      below: if has-subroles { 0.54em } else if body.pos().len() > 0 { 0.55em } else { 0pt },
       {
         org
-        if has-subroles and location != none {
-          [, #location]
-        }
-        if dates != none {
+        if location != none {
           h(1fr)
-          text(weight: "bold", sc(dates))
+          location
+        } else if title == none and dates != none {
+          h(1fr)
+          sc(dates)
         }
-        if title != none or (not has-subroles and location != none) {
+        if title != none {
           linebreak()
-          if title != none { emph(title) }
-          if location != none {
+          emph(title)
+          if dates != none {
             h(1fr)
-            location
+            sc(dates)
           }
         }
         if subtitle != none {
           linebreak()
           subtitle
+          if title == none and location != none and dates != none {
+            h(1fr)
+            sc(dates)
+          }
         }
       },
     )
@@ -154,7 +158,6 @@
   #entry(
     "Google",
     url: "https://about.google/",
-    dates: [2022/02 -- present],
     location: "New York, NY",
   )[
     #role(
