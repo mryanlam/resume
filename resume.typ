@@ -7,7 +7,7 @@
 
 #set page(
   paper: "us-letter",
-  margin: 1in,
+  margin: (x: 1in, y: 0.8in),
   numbering: none,
 )
 
@@ -68,17 +68,22 @@
       org = link(url, org)
     }
 
+    let has-subroles = title == none and subtitle == none and tech == none and body.pos().len() > 0
+
     // Header lines inside a non-breakable block so titles aren't orphaned from bullets
     block(
       breakable: false,
-      below: if body.pos().len() > 0 { 0.55em } else { 0pt },
+      below: if has-subroles { 0.35em } else if body.pos().len() > 0 { 0.55em } else { 0pt },
       {
         org
+        if has-subroles and location != none {
+          [, #location]
+        }
         if dates != none {
           h(1fr)
           text(weight: "bold", sc(dates))
         }
-        if title != none or location != none {
+        if title != none or (not has-subroles and location != none) {
           linebreak()
           if title != none { emph(title) }
           if location != none {
@@ -89,6 +94,38 @@
         if subtitle != none {
           linebreak()
           subtitle
+        }
+        if tech != none {
+          linebreak()
+          tech
+        }
+      },
+    )
+
+    for b in body.pos() {
+      b
+    }
+  },
+)
+
+// Sub-role helper for multiple teams/roles under the same organization
+#let role(
+  title,
+  dates: none,
+  tech: none,
+  ..body,
+) = block(
+  above: 0pt,
+  below: 0.9em,
+  {
+    block(
+      breakable: false,
+      below: if body.pos().len() > 0 { 0.55em } else { 0pt },
+      {
+        emph(title)
+        if dates != none {
+          h(1fr)
+          sc(dates)
         }
         if tech != none {
           linebreak()
@@ -128,13 +165,26 @@
     "Google",
     url: "https://about.google/",
     dates: [2022/02 -- present],
-    title: [Software Engineer, Site Reliability Engineering --- Corp Compute and Storage SRE],
     location: "New York, NY",
-    tech: "Python, Golang, Kubernetes, Terraform",
   )[
-    - Architected and implemented provisioning, resizing, and deletion APIs and backend lifecycle workflows in Python for an internal Compute Service.
-    - Developed a custom Terraform Provider (Go, Terraform Plugin SDK) and CLI to enable self-service Infrastructure-as-Code (IaC) management of corporate VM infrastructure.
-    - Designed and implemented a Kubernetes authorization webhook service in Golang to enforce corporate RBAC policies, with automated deployment pipelines, monitoring, and alerting for high availability on the API server critical path.
+    #role(
+      [Software Engineer, SRE --- Core Hybrid Developer SRE],
+      dates: [2026/10 -- present],
+      // tech: "...",
+    )[
+      - Developing reusable AI agent skills and automated incident triage workflows to streamline alert diagnostics and root-cause analysis for an internal containerized remote execution service.
+      // TODO: Add service reliability/launch details and measurable impact once on-call begins.
+    ]
+
+    #role(
+      [Software Engineer, SRE --- Corp Compute and Storage SRE],
+      dates: [2022/02 -- 2026/10],
+      tech: "Python, Golang, Kubernetes, Terraform",
+    )[
+      - Architected and implemented provisioning, resizing, and deletion APIs and backend lifecycle workflows in Python for an internal Compute Service.
+      - Developed a custom Terraform Provider (Go, Terraform Plugin SDK) and CLI to enable self-service Infrastructure-as-Code (IaC) management of corporate VM infrastructure.
+      - Designed and implemented a Kubernetes authorization webhook service in Golang to enforce corporate RBAC policies, with automated deployment pipelines, monitoring, and alerting for high availability on the API server critical path.
+    ]
   ]
 
   #entry(
