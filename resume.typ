@@ -164,7 +164,7 @@
       [Software Engineer, SRE --- Core Hybrid Developer SRE],
       dates: [2026/10 -- present],
     )[
-      - Developing reusable AI agent skills and automated incident triage workflows to streamline alert diagnostics and root-cause analysis for an internal containerized remote execution service.
+      - Developing reusable AI agent skills and automated incident triage workflows to streamline alert diagnostics and root-cause analysis for an internal container and remote execution platform.
       // TODO: Add service reliability/launch details and measurable impact once on-call begins.
     ]
 
