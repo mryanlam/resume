@@ -7,7 +7,7 @@
 
 #set page(
   paper: "us-letter",
-  margin: (x: 1in, y: 0.8in),
+  margin: 1in,
   numbering: none,
 )
 
@@ -57,7 +57,6 @@
   title: none,
   subtitle: none,
   location: none,
-  tech: none,
   ..body,
 ) = block(
   above: 1.35em,
@@ -68,7 +67,7 @@
       org = link(url, org)
     }
 
-    let has-subroles = title == none and subtitle == none and tech == none and body.pos().len() > 0
+    let has-subroles = title == none and subtitle == none and body.pos().len() > 0
 
     // Header lines inside a non-breakable block so titles aren't orphaned from bullets
     block(
@@ -95,10 +94,6 @@
           linebreak()
           subtitle
         }
-        if tech != none {
-          linebreak()
-          tech
-        }
       },
     )
 
@@ -112,7 +107,6 @@
 #let role(
   title,
   dates: none,
-  tech: none,
   ..body,
 ) = block(
   above: 0pt,
@@ -126,10 +120,6 @@
         if dates != none {
           h(1fr)
           sc(dates)
-        }
-        if tech != none {
-          linebreak()
-          tech
         }
       },
     )
@@ -170,7 +160,6 @@
     #role(
       [Software Engineer, SRE --- Core Hybrid Developer SRE],
       dates: [2026/10 -- present],
-      // tech: "...",
     )[
       - Developing reusable AI agent skills and automated incident triage workflows to streamline alert diagnostics and root-cause analysis for an internal containerized remote execution service.
       // TODO: Add service reliability/launch details and measurable impact once on-call begins.
@@ -179,10 +168,9 @@
     #role(
       [Software Engineer, SRE --- Corp Compute and Storage SRE],
       dates: [2022/02 -- 2026/10],
-      tech: "Python, Golang, Kubernetes, Terraform",
     )[
       - Architected and implemented provisioning, resizing, and deletion APIs and backend lifecycle workflows in Python for an internal Compute Service.
-      - Developed a custom Terraform Provider (Go, Terraform Plugin SDK) and CLI to enable self-service Infrastructure-as-Code (IaC) management of corporate VM infrastructure.
+      - Developed custom Terraform Providers (Go, Terraform Plugin Framework & SDKv2) and CLI to enable self-service Infrastructure-as-Code (IaC) management of corporate VM infrastructure.
       - Designed and implemented a Kubernetes authorization webhook service in Golang to enforce corporate RBAC policies, with automated deployment pipelines, monitoring, and alerting for high availability on the API server critical path.
     ]
   ]
@@ -193,7 +181,6 @@
     dates: [2020/01 -- 2022/02],
     title: [Senior Member of Technical Staff --- Developer Services Analytics],
     location: "Seattle, WA",
-    tech: "Java, Python, Kubernetes, Terraform",
   )[
     - Built an internal analytics service in Python and Java to ingest and aggregate OCI API telemetry, providing vital usage insights and executive reporting for leadership.
     - Re-architected the ingestion pipeline from a cron-based scheduler to an asynchronous distributed message queue using the competing consumer pattern, eliminating processing bottlenecks and enabling horizontal worker scaling.
@@ -206,9 +193,9 @@
     dates: [2016/03 -- 2020/01],
     title: [Software Engineer III --- Rapid Development Team],
     location: "Seattle, WA",
-    tech: "C, Python, Ansible, Linux",
   )[
-    - Designed and implemented a core dump management feature for BIG-IP, retaining multiple crash dumps with storage caps to preserve critical diagnostic traces during crash loops while preventing disk saturation.
+    - Debugged customer-facing production issues and implemented C fixes in BIG-IP's Traffic Management Microkernel (TMM), improving data-plane stability and resolving critical defects.
+    // - Designed and implemented a core dump management feature for BIG-IP, retaining multiple crash dumps with storage caps to preserve critical diagnostic traces during crash loops while preventing disk saturation.
     - Built a Python data pipeline to ingest, synchronize, and write bug data to a database for the customer-facing F5 Bug Tracker, enabling self-service status checks and deflecting support tickets.
     - Built automated Python tooling to generate the public F5 Log Messages Reference, publishing conditions, operational impacts, and remediation guidance for system log events.
     - Contributed to the official F5 Ansible collection by developing the bigip\_device\_dns and bigip\_hostname modules to automate network device configuration management.
@@ -221,7 +208,6 @@
     dates: [2015/06 -- 2016/03],
     title: [Rapid Development Team],
     location: "Seattle, WA",
-    // tech: "Python, Perl",
   )
   // [
   //   - Researched security vulnerabilities and how they affect the BIG-IP platform.
